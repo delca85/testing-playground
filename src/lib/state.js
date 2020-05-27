@@ -29,13 +29,21 @@ export function decompress({ html, js }) {
   };
 }
 
+const oembedLink = document.querySelector('[type="application/json+oembed"]');
 function save({ html, js }) {
   const state = compress({ html, js });
+
   const { search, pathname } = window.location;
   history.replaceState(
     null,
     '',
     pathname + (search ? search : '') + '#' + state,
+  );
+
+  const url = window.encodeURIComponent(window.location.href);
+  oembedLink.setAttribute(
+    'href',
+    `${window.location.origin}/oembed?format=json&url=${url}`,
   );
 }
 
