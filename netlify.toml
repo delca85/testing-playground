@@ -2,3 +2,13 @@
   command = "npm run build"
   functions = "dist/lambda"
   publish = "dist/client"
+
+[[redirects]]
+  from = "/oembed"
+  to = ".netlify/functions/oembed/oembed"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server/server"
+  status = 200

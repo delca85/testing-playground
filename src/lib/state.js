@@ -30,6 +30,7 @@ export function decompress({ html, js }) {
 }
 
 const oembedLink = document.querySelector('[type="application/json+oembed"]');
+
 function save({ html, js }) {
   const state = compress({ html, js });
 
